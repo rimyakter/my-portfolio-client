@@ -1,6 +1,7 @@
 # My Portfolio 🌟
 
-https://i.ibb.co.com/Mz18PM5/screenshot.png
+![My Portfolio Screenshot](https://i.ibb.co/Mz18PM5/screenshot.png)
+
 
 ## 🔹 Project Overview
 
