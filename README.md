@@ -37,7 +37,7 @@ The site provides users with an interactive and smooth experience, built with **
 
 ---
 ## Badge/Icons Section
-<img src="https://img.shields.io/badge/EmailJS-FF3C00?style=flat&logo=emailjs&logoColor=white" height="28" />
+<img src="https://cdn-icons-png.flaticon.com/128/8983/8983107.png" />
 
 
 ## 🚀 How to Run Locally
