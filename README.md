@@ -48,7 +48,7 @@ Follow these steps to run **My Portfolio** locally:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/rimyakter/my-portfolio-client.git
+cd my-portfolio-client
 
 To use EmailJS locally, create an account at [EmailJS](https://www.emailjs.com/), get your **Service ID**, **Template ID**, and **Public Key**, and add them to your `.env` or directly in the form component.
