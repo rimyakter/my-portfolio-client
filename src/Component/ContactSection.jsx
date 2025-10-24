@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import {
   FaEnvelope,
@@ -6,6 +7,7 @@ import {
   FaGithub,
   FaLocationArrow,
   FaClock,
+  FaUserFriends,
 } from "react-icons/fa";
 
 const ContactSection = () => {
@@ -19,10 +21,10 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_j15qgdj", // EmailJS service ID
-        "template_44c7db7", // EmailJS template ID
+        "service_j15qgdj",
+        "template_44c7db7",
         form.current,
-        "JDpvggxMkp9_DsuXD" // EmailJS public key
+        "JDpvggxMkp9_DsuXD"
       )
       .then(
         () => {
@@ -38,127 +40,162 @@ const ContactSection = () => {
       );
   };
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.8, type: "spring" },
+    }),
+  };
+
   return (
-    <section
-      id="contact"
-      className="bg-gradient-to-b from-gray-50 to-[#eaf9ff] py-20"
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-5xl font-bold text-center text-gray-800 mb-16">
-          Get In <span className="text-[#11CDEF]">Touch</span>
-        </h2>
+    <section id="contact" className=" py-12">
+      <div className="w-11/12 px-2 mx-auto ">
+        {/* Section Title */}
+        <motion.h2
+          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-gray-300">Get In</span>
+          <span className="bg-cyan-400 bg-clip-text text-transparent">
+            Touch
+          </span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        {/* Contact Grid */}
+        <div className="grid md:grid-cols-2 gap-10 items-stretch">
           {/* Left Side - Contact Info */}
-          <div className="bg-white shadow-lg rounded-2xl p-10">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              Let’s Connect 👋
-            </h3>
-            <p className="text-gray-600 mb-8">
-              I’d love to hear from you! Whether you have a question, project
-              idea, or just want to say hello — drop me a message and I’ll get
-              back to you soon.
-            </p>
+          <motion.div
+            custom={0}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className=" border border-cyan-400  rounded-2xl p-10 flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-300 mb-4">
+                Let’s Connect
+              </h3>
+              <p className="text-gray-400 mb-8">
+                I’d love to hear from you! Whether you have a question, project
+                idea, or just want to say hello — drop me a message and I’ll get
+                back to you soon.
+              </p>
 
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <FaEnvelope className="text-[#11CDEF] text-2xl" />
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=asha86081@gmail.com"
-                  className="text-gray-700 hover:text-[#11CDEF] transition-colors"
-                >
-                  asha86081@gmail.com
-                </a>
-              </div>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <FaEnvelope className="text-cyan-400 text-2xl" />
+                  <a
+                    href="mailto:asha86081@gmail.com"
+                    className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  >
+                    asha86081@gmail.com
+                  </a>
+                </div>
 
-              <div className="flex items-center gap-4">
-                <FaLinkedin className="text-[#11CDEF] text-2xl" />
-                <a
-                  href="https://www.linkedin.com/in/asha-akter-rimy/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-[#11CDEF] transition-colors"
-                >
-                  linkedin.com/in/asha-akter-rimy
-                </a>
-              </div>
+                <div className="flex items-center gap-4">
+                  <FaLinkedin className="text-cyan-400 text-2xl" />
+                  <a
+                    href="https://www.linkedin.com/in/asha-akter-rimy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  >
+                    linkedin.com/in/asha-akter-rimy
+                  </a>
+                </div>
 
-              <div className="flex items-center gap-4">
-                <FaGithub className="text-[#11CDEF] text-2xl" />
-                <a
-                  href="https://github.com/rimyakter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-[#11CDEF] transition-colors"
-                >
-                  github.com/rimyakter
-                </a>
-              </div>
+                <div className="flex items-center gap-4">
+                  <FaGithub className="text-cyan-400 text-2xl" />
+                  <a
+                    href="https://github.com/rimyakter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-cyan-400 transition-colors"
+                  >
+                    github.com/rimyakter
+                  </a>
+                </div>
 
-              <div className="flex items-center gap-4">
-                <FaLocationArrow className="text-[#11CDEF] text-2xl" />
-                <p className="text-gray-700 ">
-                  Ka-147 Kuril Kazibari, Vatara, Dhaka 1229, Bangladesh
-                </p>
-              </div>
-              {/* Response Time Section */}
-              <div className="flex items-center gap-4">
-                <FaClock className="text-[#11CDEF] text-2xl" />
-                <div>
-                  <p className="text-gray-800 font-medium">Response Time</p>
-                  <p className="text-gray-500 text-sm">Within 24 hours</p>
+                <div className="flex items-center gap-4">
+                  <FaLocationArrow className="text-cyan-400 text-2xl" />
+                  <p className="text-gray-300">
+                    Ka-147 Kuril Kazibari, Vatara, Dhaka 1229, Bangladesh
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <FaClock className="text-cyan-400 text-2xl" />
+                  <div>
+                    <p className="text-gray-300 font-medium">Response Time</p>
+                    <p className="text-gray-400 text-sm">Within 24 hours</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side - Contact Form */}
-          <form
+          <motion.form
             ref={form}
             onSubmit={sendEmail}
-            className="bg-white shadow-lg rounded-2xl p-10"
+            custom={1}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className=" border border-cyan-400  rounded-2xl p-10 flex flex-col justify-between "
           >
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-              Send a Message
-            </h3>
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-300 mb-6">
+                Send a Message
+              </h3>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <input
-                type="text"
-                name="from_name"
-                placeholder="Your Name"
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <input
+                  type="text"
+                  name="from_name"
+                  placeholder="Your Name"
+                  required
+                  className="border border-gray-700  text-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <input
+                  type="email"
+                  name="from_email"
+                  placeholder="Your Email"
+                  required
+                  className="border border-gray-700  text-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Your Message"
                 required
-                className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#11CDEF]"
-              />
-              <input
-                type="email"
-                name="from_email"
-                placeholder="Your Email"
-                required
-                className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#11CDEF]"
-              />
+                className="border border-gray-700  text-gray-200 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              ></textarea>
             </div>
 
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Your Message"
-              required
-              className="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-[#11CDEF]"
-            ></textarea>
+            <div className="mt-6">
+              <button
+                type="submit"
+                disabled={isSending}
+                className="text-cyan-400 bg-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-transparent hover:text-cyan-400 hover:border hover:border-cyan-400 transition-all duration-300 w-full"
+              >
+                {isSending ? "Sending..." : "Send Message"}
+              </button>
 
-            <button
-              type="submit"
-              disabled={isSending}
-              className="bg-[#11CDEF] text-white font-semibold mt-6 px-6 py-3 rounded-lg hover:bg-[#0bb8d5] transition-all duration-300 w-full"
-            >
-              {isSending ? "Sending..." : "Send Message"}
-            </button>
-
-            {messageStatus && (
-              <p className="mt-4 text-sm text-gray-600">{messageStatus}</p>
-            )}
-          </form>
+              {messageStatus && (
+                <p className="mt-4 text-sm text-gray-400">{messageStatus}</p>
+              )}
+            </div>
+          </motion.form>
         </div>
       </div>
     </section>

@@ -67,8 +67,8 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-[#11AAEF] text-white fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-[#0F0E0E] border-b-1 text-white fixed w-full z-50">
+      <div className="w-11/12 mx-auto ">
         <div className="flex justify-between h-16 items-center">
           {/* Mobile Hamburger */}
           <div className="flex items-center lg:hidden">

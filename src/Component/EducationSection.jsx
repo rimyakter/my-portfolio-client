@@ -1,6 +1,6 @@
-import { FaUniversity } from "react-icons/fa";
-import Lottie from "lottie-react";
-import animationData from "../assets/lottie/bg-4.json";
+import React from "react";
+import { FaUniversity, FaGraduationCap } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const educationData = [
   {
@@ -13,44 +13,104 @@ const educationData = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.8,
+      type: "spring",
+      stiffness: 100,
+    },
+  }),
+};
+
 const EducationSection = () => {
   return (
-    <section className="py-16 bg-[#11AAEF] relative">
-      {/* Lottie background */}
-      <Lottie
-        animationData={animationData}
-        loop
-        autoplay
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl sm:text-5xl font-semibold text-center text-white mb-12 mt-12">
-          🎓 Education
-        </h2>
-        <div className="flex flex-col items-center space-y-10">
-          {educationData.map((edu, index) => (
-            <div
-              key={index}
-              className="z-10 w-full sm:w-3/5 bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row"
+    <section className=" py-12">
+      <div className="w-11/12 mx-auto ">
+        {/* Section Title */}
+        <motion.h2
+          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-5 md:mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-gray-300">My</span>
+          <span className="bg-cyan-400 bg-clip-text text-transparent">
+            Education
+          </span>
+        </motion.h2>
+
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-start relative">
+          {/* Left Column: Education Card */}
+          <motion.div
+            className="flex flex-col space-y-6 col-span-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                className=" rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-center   relative"
+              >
+                {/* University Icon */}
+                <motion.div
+                  className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 flex justify-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+                >
+                  <FaUniversity className="text-4xl md:text-6xl text-cyan-400" />
+                </motion.div>
+
+                {/* Text Content */}
+                <motion.div
+                  className="text-center md:text-left"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-300 mb-3">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-sm md:text-lg text-cyan-400">
+                    {edu.institution}
+                  </p>
+                  <p className="text-sm text-gray-300">{edu.duration}</p>
+                  <p className="text-sm text-gray-300 font-medium">
+                    Result: <span className="text-cyan-400">{edu.result}</span>
+                  </p>
+                  <p className="mt-2 text-gray-300">{edu.description}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Right Column: Floating Graduation Cap */}
+          <motion.div
+            className="flex justify-center md:justify-end relative "
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
+          >
+            <motion.div
+              className="relative text-cyan-400 text-[7rem] md:text-[14rem]"
+              animate={{ y: [0, -40, 0], rotate: [0, 10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 flex justify-center">
-                <FaUniversity className="text-4xl sm:text-5xl text-[#11CDEF]" />
-              </div>
-              <div className="text-center sm:text-left">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3">
-                  {edu.degree}
-                </h3>
-                <p className="text-base sm:text-lg text-gray-600">
-                  {edu.institution}
-                </p>
-                <p className="text-sm text-gray-500">{edu.duration}</p>
-                <p className="text-sm text-gray-500 font-medium">
-                  Result: {edu.result}
-                </p>
-                <p className="mt-2 text-gray-600">{edu.description}</p>
-              </div>
-            </div>
-          ))}
+              <FaGraduationCap />
+
+              {/* Subtle glow behind icon */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-20 blur-3xl -z-10"></div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

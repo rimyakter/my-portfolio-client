@@ -1,10 +1,8 @@
 import React from "react";
-import Lottie from "lottie-react";
-import animationData from "../assets/lottie/bg-4.json";
+import { motion } from "framer-motion";
 import {
   FaReact,
   FaNodeJs,
-  FaDatabase,
   FaGitAlt,
   FaCss3Alt,
   FaBootstrap,
@@ -17,36 +15,33 @@ import {
   SiExpress,
   SiFirebase,
   SiFigma,
+  SiVercel,
+  SiNetlify,
+  SiNextdotjs,
 } from "react-icons/si";
 
+// Skill data
 const skillsData = [
   {
     category: "Frontend",
     skills: [
+      { name: "React", icon: <FaReact className="text-blue-500 text-4xl" /> },
       {
-        name: "React",
-        icon: <FaReact className="text-blue-500 text-4xl" />,
-        description: "Build dynamic UIs efficiently",
+        name: "Next.js",
+        icon: <SiNextdotjs className="text-white text-4xl" />,
       },
       {
         name: "Tailwind CSS",
         icon: <SiTailwindcss className="text-teal-400 text-4xl" />,
-        description: "Rapid UI styling framework",
       },
       {
         name: "JavaScript",
         icon: <SiJavascript className="text-yellow-400 text-4xl" />,
-        description: "Core web programming language",
       },
-      {
-        name: "CSS3",
-        icon: <FaCss3Alt className="text-blue-600 text-4xl" />,
-        description: "Responsive design and layout",
-      },
+      { name: "CSS3", icon: <FaCss3Alt className="text-blue-600 text-4xl" /> },
       {
         name: "Bootstrap",
         icon: <FaBootstrap className="text-purple-600 text-4xl" />,
-        description: "Frontend UI framework",
       },
     ],
   },
@@ -56,37 +51,30 @@ const skillsData = [
       {
         name: "Node.js",
         icon: <FaNodeJs className="text-green-600 text-4xl" />,
-        description: "Server-side JavaScript runtime",
       },
       {
         name: "Express.js",
         icon: <SiExpress className="text-gray-700 text-4xl" />,
-        description: "Web server framework for Node",
       },
       {
         name: "MongoDB",
         icon: <SiMongodb className="text-green-800 text-4xl" />,
-        description: "NoSQL database management",
       },
       {
         name: "Firebase",
         icon: <SiFirebase className="text-yellow-500 text-4xl" />,
-        description: "Realtime database & auth",
       },
     ],
   },
   {
-    category: "Tools & Version Control",
+    category: "Tools & Platforms",
     skills: [
+      { name: "Git", icon: <FaGitAlt className="text-red-500 text-4xl" /> },
+      { name: "Figma", icon: <SiFigma className="text-pink-500 text-4xl" /> },
+      { name: "Vercel", icon: <SiVercel className="text-white text-4xl" /> },
       {
-        name: "Git",
-        icon: <FaGitAlt className="text-red-500 text-4xl" />,
-        description: "Version control for projects",
-      },
-      {
-        name: "Figma",
-        icon: <SiFigma className="text-pink-500 text-4xl" />,
-        description: "Design & prototyping tool",
+        name: "Netlify",
+        icon: <SiNetlify className="text-teal-400 text-4xl" />,
       },
     ],
   },
@@ -94,38 +82,58 @@ const skillsData = [
 
 const SkillsSection = () => {
   return (
-    <section className="bg-[#11AAEF] py-12 relative z-5">
-      <div className="max-w-7xl mx-auto px-4 z-5">
-        <h2 className="text-5xl font-bold text-center mb-8 text-white flex justify-center pt-10">
-          <FaLightbulb className="text-yellow-400 mr-1 text-center" />
-          My Skills
-        </h2>
-        {/* Lottie background */}
-        <Lottie
-          animationData={animationData}
-          loop
-          autoplay
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        />
-        {skillsData.map((category, idx) => (
-          <div key={idx} className="mb-12 z-5">
-            <h3 className="text-2xl text-white font-semibold mb-6">
-              {category.category}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {category.skills.map((skill, sIdx) => (
-                <div
-                  key={sIdx}
-                  className="z-5 bg-white shadow-lg rounded-xl p-5 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300"
-                >
-                  {skill.icon}
-                  <h4 className="mt-4 text-xl font-semibold">{skill.name}</h4>
-                  <p className="mt-2 text-gray-500">{skill.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+    <section className="relative pb-10 pt-5 bg-[#0F0E0E] overflow-hidden">
+      <div className="absolute inset-0  backdrop-blur-sm"></div>
+
+      <div className="relative z-10 w-11/12 mx-auto ">
+        <motion.h2
+          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-12 flex items-center justify-center"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <span className="text-gray-300">My</span>
+          <span className="bg-cyan-400 bg-clip-text text-transparent">
+            Skills
+          </span>
+        </motion.h2>
+
+        {/* Big Category Cards */}
+        <div className="flex flex-col md:flex-row justify-between gap-10">
+          {skillsData.map((category, idx) => (
+            <motion.div
+              key={idx}
+              className="flex-1 backdrop-blur-lg rounded-xl p-6 shadow-xl border border-cyan-400  transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }} // Start below
+              whileInView={{ opacity: 1, y: 0 }} // Slide up into view
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: idx * 0.2 }} // stagger cards
+            >
+              <h3 className="text-2xl font-bold text-gray-300 mb-6 text-center border-b border-white/20 pb-3">
+                {category.category}
+              </h3>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                {category.skills.map((skill, sIdx) => (
+                  <motion.div
+                    key={sIdx}
+                    className=" rounded-xl p-4 w-32 flex flex-col items-center text-center shadow-md border border-white/10 hover:scale-105 transition-all duration-300"
+                    whileHover={{
+                      y: -4,
+                      scale: 1.05,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                  >
+                    <div className="mb-2">{skill.icon}</div>
+                    <h4 className="text-sm font-semibold text-white mb-1">
+                      {skill.name}
+                    </h4>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

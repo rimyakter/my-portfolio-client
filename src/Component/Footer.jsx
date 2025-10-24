@@ -23,10 +23,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 py-8">
+    <footer className=" border-t border-cyan-300 py-8">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Copyright */}
-        <p className="text-gray-600 text-sm mb-4">
+        <p className="text-gray-500 text-sm mb-4">
           &copy; {currentYear} Asha Akter. All rights reserved.
         </p>
 
@@ -38,7 +38,7 @@ const Footer = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#11CDEF] hover:text-gray-600 transition-colors text-xl"
+                className="text-cyan-400 hover:text-gray-300 transition-colors text-xl"
                 aria-label={link.label}
               >
                 {link.icon}

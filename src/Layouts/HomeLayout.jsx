@@ -2,27 +2,18 @@ import React from "react";
 import Home from "../Home/Home";
 import AnimatedProfile from "../Home/AnimatedProfile";
 
-import SocialLinks from "../Home/SocialLinks";
-
 import ResumeButton from "../Home/ResumeButton";
 
 const HomeLayout = () => {
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 px-5 z-10">
-      <div className="relative">
-        <div>
-          <Home></Home>
-        </div>
+    <div className="w-11/12 mx-auto pt-25 pb-10 bg-[#0F0E0E] grid grid-cols-1 md:grid-cols-3">
+      <div className="col-span-2">
+        <Home></Home>
 
-        <div className="mt-10">
-          <SocialLinks></SocialLinks>
-        </div>
-        <div className="py-10 z-50">
-          <ResumeButton></ResumeButton>
-        </div>
+        <ResumeButton></ResumeButton>
       </div>
 
-      <div className="relative">
+      <div>
         <AnimatedProfile></AnimatedProfile>
       </div>
     </div>

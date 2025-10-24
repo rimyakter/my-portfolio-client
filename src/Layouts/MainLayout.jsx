@@ -10,45 +10,46 @@ import Footer from "../Component/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gradient-to-b from-[#11AAEF] via-[#11A2EF]  to-[#1173EF]">
+    <div className="bg-[#0F0E0E]">
       {/* navbar section */}
-      <section className="navbar z-40">
+      <div>
         <Navbar></Navbar>
-      </section>
+      </div>
+
       {/* Hero section */}
-      <section id="home" className="hero z-10 pt-10">
+      <div>
         <HomeLayout></HomeLayout>
-      </section>
+      </div>
+
       {/* About Me section */}
-
-      <section id="about" className="aboutMe z-10">
+      <div>
         <AboutMe></AboutMe>
-      </section>
+      </div>
+
       {/* Skills section */}
-
-      <section id="skill" className="skills z-10">
+      <div>
         <SkillsSection></SkillsSection>
-      </section>
+      </div>
+
       {/* Education section */}
-
-      <section id="education" className="education z-10">
+      <div>
         <EducationSection></EducationSection>
-      </section>
+      </div>
+
       {/* Projects section */}
-
-      <section id="projects" className="projects z-10">
+      <div>
         <ProjectsSection></ProjectsSection>
-      </section>
+      </div>
+
       {/* contact section */}
-
-      <section id="contact" className="contacts z-10">
+      <div>
         <ContactSection></ContactSection>
-      </section>
-      {/* Footer section */}
+      </div>
 
-      <section>
+      {/* Footer section */}
+      <div>
         <Footer></Footer>
-      </section>
+      </div>
     </div>
   );
 };

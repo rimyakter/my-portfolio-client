@@ -8,8 +8,9 @@ const SocialLinks = () => {
       id: 1,
       icon: <SiGmail size={16} />,
       href: "https://mail.google.com/mail/?view=cm&fs=1&to=asha86081@gmail.com",
-      bg: "bg-red-500",
-      hover: "hover:bg-red-600",
+      bg: "bg-white",
+      hover:
+        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
       label: "Gmail",
       newTab: true,
     },
@@ -17,30 +18,33 @@ const SocialLinks = () => {
       id: 2,
       icon: <FaLinkedin size={16} />,
       href: "https://www.linkedin.com/in/asha-akter-rimy/",
-      bg: "bg-blue-600",
-      hover: "hover:bg-blue-700",
+      bg: "bg-white",
+      hover:
+        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
       label: "LinkedIn",
     },
     {
       id: 3,
       icon: <FaGithub size={16} />,
       href: "https://github.com/rimyakter/",
-      bg: "bg-gray-800",
-      hover: "hover:bg-black",
+      bg: "bg-white",
+      hover:
+        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
       label: "GitHub",
     },
     {
       id: 4,
       icon: <FaInstagram size={16} />,
       href: "https://www.instagram.com/__rimy__aktr/",
-      bg: "bg-gradient-to-tr from-pink-500 to-yellow-500",
-      hover: "hover:opacity-80",
+      bg: "bg-white",
+      hover:
+        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
       label: "Instagram",
     },
   ];
 
   return (
-    <div className="flex space-x-5">
+    <div className="flex space-x-5 py-5">
       {links.map(({ id, icon, href, bg, hover, label }) => (
         <a
           key={id}
@@ -48,7 +52,7 @@ const SocialLinks = () => {
           target="_blank"
           rel="noopener noreferrer"
           title={label}
-          className={`flex items-center justify-center w-8 h-8 rounded-full text-white ${bg} ${hover} transform transition-all duration-300 hover:scale-110 shadow-md`}
+          className={`flex items-center justify-center w-8 h-8 rounded-full text-black ${bg} ${hover} transform transition-all duration-300 hover:scale-110 shadow-md`}
         >
           {icon}
         </a>
