@@ -33,7 +33,7 @@ const EducationSection = () => {
       <div className="w-11/12 mx-auto ">
         {/* Section Title */}
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-5 md:mb-12"
+          className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-5 md:mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

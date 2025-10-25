@@ -33,7 +33,7 @@ const ResumeButton = () => {
   };
 
   return (
-    <div className="flex flex-col items-start mt-12">
+    <div className="flex flex-col items-center md:items-start mb-10 md:mb-1 mt-12">
       <motion.a
         href={resumeUrl}
         target="_blank"

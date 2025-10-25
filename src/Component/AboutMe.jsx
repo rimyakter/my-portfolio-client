@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";
+import ResumeButton from "../Home/ResumeButton";
 
 const AboutMe = () => {
   return (
-    <section className="w-full  py-10 px-3   md:px-6 overflow-hidden">
+    <section className="w-full  py-10 px-2    md:px-6 overflow-hidden">
       <div className=" flex flex-col lg:flex-row items-center gap-y-5">
         {/* Floating Icon Section */}
         <motion.div
@@ -33,14 +34,14 @@ const AboutMe = () => {
 
         {/* Text Section */}
         <motion.div
-          className="  flex-1 space-y-5 text-center lg:text-justify  p-10 rounded-xl shadow-xl"
+          className="  flex-1 space-y-5 text-center lg:text-justify p-2 md:p-10 rounded-xl shadow-xl"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Section Title */}
           <motion.h2
-            className="text-3xl md:text-5xl font-extrabold text-gray-900"
+            className="text-4xl md:text-5xl font-extrabold text-gray-900"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -97,6 +98,8 @@ const AboutMe = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <div></div>
     </section>
   );
 };

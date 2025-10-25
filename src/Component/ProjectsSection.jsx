@@ -98,7 +98,7 @@ const ProjectSection = () => {
       <div className="w-11/12 mx-auto px-2">
         {/* Section Title */}
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-12"
+          className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -133,13 +133,15 @@ const ProjectSection = () => {
 
               {/* Right: Details */}
               <div className="md:w-1/2 p-6 flex flex-col">
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-300 mb-2">
+                <h3 className="text-xl md:text-2xl font-semibold text-center md:text-start text-gray-300 mb-2">
                   {project.name}
                 </h3>
-                <p className="text-sm text-cyan-400 mb-4">{project.tag}</p>
+                <p className="text-sm text-cyan-400 mb-4 text-center md:text-start">
+                  {project.tag}
+                </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 mb-4">
+                <div className="flex flex-wrap gap-3 mt-3 md:mt-1 mb-4 items-center md:items-start">
                   {project.techStack.map((tech, i) => (
                     <motion.div
                       key={i}

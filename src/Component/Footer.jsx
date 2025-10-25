@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 const socialLinks = [
   {
     icon: <FaLinkedin />,
-    url: "https://www.linkedin.com/in/asha-akter-rimy/",
+    url: "https://www.linkedin.com/in/asa-akter-rimy/",
     label: "LinkedIn",
   },
   {

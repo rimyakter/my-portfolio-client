@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const titles = ["Frontend Developer", "Programmer", "Web Enthusiast"];
+const titles = ["Asa Akter Rimy", "Programmer", "Frontend Developer"];
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -20,7 +20,7 @@ const Home = () => {
     <div className="flex flex-col items-center md:items-start">
       {/* Intro Text */}
       <motion.h2
-        className="text-gray-300 text-sm md:text-lg mb-2 mt-10"
+        className="text-gray-300 text-sm md:text-lg mb-2 mt-6 md:mt-10"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ const Home = () => {
         <AnimatePresence mode="wait">
           <motion.h1
             key={index}
-            className="text-3xl md:text-5xl font-bold bg-cyan-400 bg-clip-text text-transparent"
+            className="text-3xl md:text-6xl font-bold bg-cyan-400 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}

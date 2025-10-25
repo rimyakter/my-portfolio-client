@@ -17,32 +17,32 @@ const MainLayout = () => {
       </div>
 
       {/* Hero section */}
-      <div>
+      <div id="home">
         <HomeLayout></HomeLayout>
       </div>
 
       {/* About Me section */}
-      <div>
+      <div id="about">
         <AboutMe></AboutMe>
       </div>
 
       {/* Skills section */}
-      <div>
+      <div id="skill">
         <SkillsSection></SkillsSection>
       </div>
 
       {/* Education section */}
-      <div>
+      <div id="education">
         <EducationSection></EducationSection>
       </div>
 
       {/* Projects section */}
-      <div>
+      <div id="projects">
         <ProjectsSection></ProjectsSection>
       </div>
 
       {/* contact section */}
-      <div>
+      <div id="contact">
         <ContactSection></ContactSection>
       </div>
 

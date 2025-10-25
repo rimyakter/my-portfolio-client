@@ -78,7 +78,7 @@ const ContactSection = () => {
             className=" border border-cyan-400  rounded-2xl p-10 flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-gray-300 mb-4">
+              <h3 className="text-2xl font-semibold text-center md:text-start text-gray-300 mb-4">
                 Let’s Connect
               </h3>
               <p className="text-gray-400 mb-8">
@@ -101,12 +101,12 @@ const ContactSection = () => {
                 <div className="flex items-center gap-4">
                   <FaLinkedin className="text-cyan-400 text-2xl" />
                   <a
-                    href="https://www.linkedin.com/in/asha-akter-rimy/"
+                    href="https://www.linkedin.com/in/asa-akter-rimy/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-cyan-400 transition-colors"
                   >
-                    linkedin.com/in/asha-akter-rimy
+                    linkedin.com/in/asa-akter-rimy
                   </a>
                 </div>
 

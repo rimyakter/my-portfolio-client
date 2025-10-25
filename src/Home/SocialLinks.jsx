@@ -9,8 +9,7 @@ const SocialLinks = () => {
       icon: <SiGmail size={16} />,
       href: "https://mail.google.com/mail/?view=cm&fs=1&to=asha86081@gmail.com",
       bg: "bg-white",
-      hover:
-        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
+      hover: "hover:bg-cyan-400  hover:text-white",
       label: "Gmail",
       newTab: true,
     },
@@ -19,8 +18,7 @@ const SocialLinks = () => {
       icon: <FaLinkedin size={16} />,
       href: "https://www.linkedin.com/in/asha-akter-rimy/",
       bg: "bg-white",
-      hover:
-        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
+      hover: "hover:bg-cyan-400  hover:text-white",
       label: "LinkedIn",
     },
     {
@@ -28,8 +26,7 @@ const SocialLinks = () => {
       icon: <FaGithub size={16} />,
       href: "https://github.com/rimyakter/",
       bg: "bg-white",
-      hover:
-        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
+      hover: "hover:bg-cyan-400  hover:text-white",
       label: "GitHub",
     },
     {
@@ -37,8 +34,7 @@ const SocialLinks = () => {
       icon: <FaInstagram size={16} />,
       href: "https://www.instagram.com/__rimy__aktr/",
       bg: "bg-white",
-      hover:
-        "hover:bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:text-white",
+      hover: "hover:bg-cyan-400  hover:text-white",
       label: "Instagram",
     },
   ];

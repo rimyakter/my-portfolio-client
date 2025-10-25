@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HiMenuAlt3, HiX } from "react-icons/hi"; // hamburger & close icons
 import NavLogo from "./NavLogo";
 
 const Navbar = () => {
@@ -9,90 +10,30 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    // Close mobile menu after click
     setIsOpen(false);
   };
 
   const navLinks = (
     <>
-      <li>
-        <button
-          onClick={() => scrollToSection("home")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          Home
-        </button>
-      </li>
-      <li>
-        <button
-          onClick={() => scrollToSection("about")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          About
-        </button>
-      </li>
-      <li>
-        <button
-          onClick={() => scrollToSection("skill")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          Skill
-        </button>
-      </li>
-      <li>
-        <button
-          onClick={() => scrollToSection("education")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          Education
-        </button>
-      </li>
-      <li>
-        <button
-          onClick={() => scrollToSection("projects")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          Projects
-        </button>
-      </li>
-      <li>
-        <button
-          onClick={() => scrollToSection("contact")}
-          className="w-full text-left px-2 py-1 hover:bg-gray-100 hover:text-[#11AAEF] rounded"
-        >
-          Contact
-        </button>
-      </li>
+      {["home", "about", "skill", "education", "projects", "contact"].map(
+        (section) => (
+          <li key={section}>
+            <button
+              onClick={() => scrollToSection(section)}
+              className="w-full text-left px-2 py-1 hover:bg-cyan-400/20 hover:text-cyan-400 rounded transition-all duration-300"
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          </li>
+        )
+      )}
     </>
   );
 
   return (
-    <nav className="bg-[#0F0E0E] border-b-1 text-white fixed w-full z-50">
-      <div className="w-11/12 mx-auto ">
+    <nav className="bg-[#0F0E0E]/95 backdrop-blur-sm text-white fixed w-full z-50 border-b border-cyan-400 shadow-md">
+      <div className="w-11/12 mx-auto">
         <div className="flex justify-between h-16 items-center">
-          {/* Mobile Hamburger */}
-          <div className="flex items-center lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-white focus:outline-none"
-            >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-
           {/* Logo */}
           <div className="flex-shrink-0">
             <NavLogo />
@@ -100,15 +41,33 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex space-x-4">
-            <ul className="flex space-x-4">{navLinks}</ul>
+            <ul className="flex space-x-6 font-medium tracking-wide">
+              {navLinks}
+            </ul>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <div className="flex items-center lg:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-cyan-400 hover:text-cyan-300 focus:outline-none transition-all"
+            >
+              {isOpen ? (
+                <HiX className="h-7 w-7 animate-pulse" />
+              ) : (
+                <HiMenuAlt3 className="h-7 w-7" />
+              )}
+            </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-16 left-0 w-full bg-white z-40 text-gray-800 shadow-lg ">
-          <ul className="flex flex-col p-4  space-y-1 z-12">{navLinks}</ul>
+        <div className="lg:hidden absolute top-16 left-0 w-full bg-[#0F0E0E] text-white border-t border-cyan-400/20 shadow-lg animate-fadeIn">
+          <ul className="flex flex-col p-4 space-y-2 text-lg font-medium">
+            {navLinks}
+          </ul>
         </div>
       )}
     </nav>

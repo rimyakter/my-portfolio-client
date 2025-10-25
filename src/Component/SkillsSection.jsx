@@ -6,7 +6,6 @@ import {
   FaGitAlt,
   FaCss3Alt,
   FaBootstrap,
-  FaLightbulb,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -54,7 +53,7 @@ const skillsData = [
       },
       {
         name: "Express.js",
-        icon: <SiExpress className="text-gray-700 text-4xl" />,
+        icon: <SiExpress className="text-gray-400 text-4xl" />,
       },
       {
         name: "MongoDB",
@@ -83,41 +82,43 @@ const skillsData = [
 const SkillsSection = () => {
   return (
     <section className="relative pb-10 pt-5 bg-[#0F0E0E] overflow-hidden">
-      <div className="absolute inset-0  backdrop-blur-sm"></div>
+      <div className="absolute inset-0 backdrop-blur-sm"></div>
 
-      <div className="relative z-10 w-11/12 mx-auto ">
+      <div className="relative z-10 w-11/12 mx-auto">
+        {/* Title */}
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center text-gray-300 mb-12 flex items-center justify-center"
+          className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-12 flex items-center justify-center"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className="text-gray-300">My</span>
-          <span className="bg-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-cyan-400 bg-clip-text text-transparent ml-2">
             Skills
           </span>
         </motion.h2>
 
-        {/* Big Category Cards */}
+        {/* Category Cards */}
         <div className="flex flex-col md:flex-row justify-between gap-10">
           {skillsData.map((category, idx) => (
             <motion.div
               key={idx}
-              className="flex-1 backdrop-blur-lg rounded-xl p-6 shadow-xl border border-cyan-400  transition-all duration-300"
-              initial={{ opacity: 0, y: 50 }} // Start below
-              whileInView={{ opacity: 1, y: 0 }} // Slide up into view
+              className="flex-1 backdrop-blur-lg rounded-xl p-6 shadow-xl border border-cyan-400/40 transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.2 }} // stagger cards
+              transition={{ duration: 0.8, delay: idx * 0.2 }}
             >
               <h3 className="text-2xl font-bold text-gray-300 mb-6 text-center border-b border-white/20 pb-3">
                 {category.category}
               </h3>
 
-              <div className="flex flex-wrap justify-center gap-4">
+              {/* Responsive Skill Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 place-items-center">
                 {category.skills.map((skill, sIdx) => (
                   <motion.div
                     key={sIdx}
-                    className=" rounded-xl p-4 w-32 flex flex-col items-center text-center shadow-md border border-white/10 hover:scale-105 transition-all duration-300"
+                    className="rounded-xl p-4 w-full flex flex-col items-center text-center shadow-md border border-white/10 hover:scale-105 transition-all duration-300"
                     whileHover={{
                       y: -4,
                       scale: 1.05,
