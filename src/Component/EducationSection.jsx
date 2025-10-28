@@ -6,7 +6,7 @@ const educationData = [
   {
     degree: "Bachelor of Science in Computer Science & Engineering",
     institution: "Daffodil International University",
-    duration: "2016 – 2022",
+    duration: "2016 – 2020",
     result: "3.69 / 4.00",
     description:
       "Focused on software development, algorithms, and data structures.",
